@@ -19,19 +19,18 @@ namespace Accelerator
 
 	}
 
-	unsigned int TaskManager::ConcurentThreadsSupported()
-	{
-		//Find out how many threads we can utilize on the current PC
-		return(std::thread::hardware_concurrency());
-	}
-
-	void TaskManager::InitializeThreads()
+	void TaskManager::InitializeThreads(int amt)
 	{
 		//Initialize threads
-		for (int i = 1; i < std::thread::hardware_concurrency(); ++i)
+		for (int i = 0; i < amt; ++i)
 		{
 			threads.push_back(new TaskThread());
 		}
+	}
+
+	void TaskManager::ResizePool(int newSize)
+	{
+
 	}
 
 	int TaskManager::AssignTask(void* t)

@@ -48,13 +48,12 @@ namespace Accelerator
 
 		//Member functions
 
-		static void InitializeThreads();
+		static void InitializeThreads(int amt);
+
+		static void ResizePool(int newSize);
 
 		static int AssignTask(void* t);
 
 		static void Join(int id);
-
-		//The amount of threads on the current system
-		static unsigned int ConcurentThreadsSupported();
 	};
 }
